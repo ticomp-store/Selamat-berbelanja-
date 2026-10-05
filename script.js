@@ -22,30 +22,30 @@ const products = [
     },
 
     {
-        brand: "ASUS",
-        name: "ASUS TUF Gaming",
-        spec: "Ryzen 5 • RAM 16GB • SSD 512GB",
-        price: "Rp 9.499.000",
+        brand: "Lenovo",
+        name: "LENOVO X14",
+        spec: "Intel Core i7-1065G7 • RAM 8GB • SSD 512GB",
+        price: "Rp 6.200.000",
         stock: "Stok tersedia",
-        image: "products/asus-tuf.jpg"
+        image: "Lenovo x14"
     },
 
     {
         brand: "Lenovo",
-        name: "Lenovo IdeaPad",
-        spec: "Intel Core i5 • RAM 8GB • SSD 512GB",
-        price: "Rp 5.799.000",
+        name: "LENOVO YOGA 11E TOUCH",
+        spec: "Intel Core i5-8 • RAM 8GB • SSD 256GB",
+        price: "Rp 4.450.000",
         stock: "Stok tersedia",
-        image: "products/lenovo.jpg"
+        image: "yoga 11E"
     },
 
     {
         brand: "Lenovo",
-        name: "Lenovo LOQ",
-        spec: "Intel Core i5 • RAM 16GB • SSD 512GB",
-        price: "Rp 10.499.000",
+        name: "LENOVO X13 TOUCH",
+        spec: "Intel Core i5-10 • RAM 16GB • SSD 256GB",
+        price: "Rp 5.850.000",
         stock: "Stok tersedia",
-        image: "products/lenovo-loq.jpg"
+        image: "Lenovo x13"
     },
 
     {
