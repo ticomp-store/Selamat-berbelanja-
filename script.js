@@ -1,69 +1,90 @@
 /* =========================================
-   NOMOR WHATSAPP TI COMP
-   GANTI DENGAN NOMOR WHATSAPP KAMU
+   NOMOR WHATSAPP
+   GANTI DENGAN NOMOR KAMU
 ========================================= */
 
 const whatsappNumber = "6281234567890";
 
 
 /* =========================================
-   DATA PRODUK LAPTOP
+   DATA PRODUK LENOVO
 ========================================= */
 
 const products = [
 
     {
-        brand: "ASUS",
-        name: "ASUS VivoBook",
-        spec: "Intel Core i5 • RAM 8GB • SSD 512GB",
-        price: "Rp 5.999.000",
-        stock: "Stok tersedia",
-        image: "products/asus.jpg"
+        brand: "Lenovo",
+
+        name: "LENOVO V14",
+
+        spec:
+            "Intel Core i7 • RAM 8GB • SSD 512GB",
+
+        price:
+            "Rp 6.200.000",
+
+        stock:
+            "Stok tersedia",
+
+        image:
+            "20261005_112021_lmc_8.4.jpg"
     },
+
 
     {
         brand: "Lenovo",
-        name: "LENOVO X14",
-        spec: "Intel Core i7-1065G7 • RAM 8GB • SSD 512GB",
-        price: "Rp 6.200.000",
-        stock: "Stok tersedia",
-        image: "Lenovo x14"
-    },
 
-    {
-        brand: "Lenovo",
         name: "LENOVO YOGA 11E TOUCH",
-        spec: "Intel Core i5-8 • RAM 8GB • SSD 256GB",
-        price: "Rp 4.450.000",
-        stock: "Stok tersedia",
-        image: "20261005_112026_lmc_8.4.jpg"
+
+        spec:
+            "Intel Core i5 • RAM 8GB • SSD 256GB",
+
+        price:
+            "Rp 4.450.000",
+
+        stock:
+            "Stok tersedia",
+
+        image:
+            "20261005_112026_lmc_8.4.jpg"
     },
+
 
     {
         brand: "Lenovo",
+
         name: "LENOVO X13 TOUCH",
-        spec: "Intel Core i5-10 • RAM 16GB • SSD 256GB",
-        price: "Rp 5.850.000",
-        stock: "Stok tersedia",
-        image: "Lenovo x13"
+
+        spec:
+            "Intel Core i5 • RAM 16GB • SSD 256GB",
+
+        price:
+            "Rp 5.850.000",
+
+        stock:
+            "Stok tersedia",
+
+        image:
+            "20261005_112021_lmc_8.4.jpg"
     },
 
-    {
-        brand: "Acer",
-        name: "Acer Aspire",
-        spec: "Intel Core i3 • RAM 8GB • SSD 512GB",
-        price: "Rp 4.799.000",
-        stock: "Stok tersedia",
-        image: "products/acer.jpg"
-    },
 
     {
-        brand: "HP",
-        name: "HP 14",
-        spec: "Intel Core i5 • RAM 8GB • SSD 512GB",
-        price: "Rp 5.899.000",
-        stock: "Stok tersedia",
-        image: "products/hp.jpg"
+        brand: "Lenovo",
+
+        name: "LENOVO X13",
+
+        spec:
+            "Intel Core i5 • RAM 8GB • SSD 256GB",
+
+        price:
+            "Rp 5.500.000",
+
+        stock:
+            "Stok tersedia",
+
+        image:
+            "20261005_112026_lmc_8.4.jpg"
     }
 
 ];
@@ -73,60 +94,78 @@ let currentBrand = "Semua";
 
 
 /* =========================================
-   MENAMPILKAN PRODUK
+   TAMPILKAN PRODUK
 ========================================= */
 
 function displayProducts() {
 
-    const grid = document.getElementById("productGrid");
+    const grid =
+        document.getElementById("productGrid");
 
-    const searchInput = document.getElementById("search");
-
-    const search = searchInput
-        ? searchInput.value.toLowerCase().trim()
-        : "";
+    const searchInput =
+        document.getElementById("search");
 
 
-    const filteredProducts = products.filter(product => {
-
-        const brandMatch =
-            currentBrand === "Semua" ||
-            product.brand === currentBrand;
-
-
-        const searchMatch =
-            product.name.toLowerCase().includes(search) ||
-            product.brand.toLowerCase().includes(search) ||
-            product.spec.toLowerCase().includes(search);
+    const search =
+        searchInput
+            ? searchInput.value
+                .toLowerCase()
+                .trim()
+            : "";
 
 
-        return brandMatch && searchMatch;
+    const filtered =
+        products.filter(product => {
 
-    });
+
+            const brandMatch =
+                currentBrand === "Semua" ||
+                product.brand === currentBrand;
+
+
+            const searchMatch =
+
+                product.name
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                product.brand
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                product.spec
+                    .toLowerCase()
+                    .includes(search);
+
+
+            return brandMatch && searchMatch;
+
+        });
 
 
     grid.innerHTML = "";
 
 
-    /* Jika produk tidak ditemukan */
+    /* =====================================
+       JIKA TIDAK ADA PRODUK
+    ===================================== */
 
-    if (filteredProducts.length === 0) {
+    if (filtered.length === 0) {
 
         grid.innerHTML = `
 
-            <div style="
-                grid-column: 1 / -1;
-                text-align: center;
-                padding: 60px 20px;
-                color: #7a8698;
-            ">
+            <div class="no-product">
 
                 <h3>
                     Laptop tidak ditemukan
                 </h3>
 
-                <p style="margin-top:8px;">
-                    Coba cari nama laptop atau merek lain.
+                <p>
+                    Coba cari dengan kata lain.
                 </p>
 
             </div>
@@ -134,18 +173,22 @@ function displayProducts() {
         `;
 
         return;
+
     }
 
 
-    /* Membuat kartu produk */
+    /* =====================================
+       BUAT KARTU PRODUK
+    ===================================== */
 
-    filteredProducts.forEach(product => {
+    filtered.forEach(product => {
+
 
         const message =
             `Halo TI COMP, saya tertarik dengan ${product.name}. Apakah masih tersedia?`;
 
 
-        const whatsappLink =
+        const whatsapp =
             `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 
@@ -158,8 +201,6 @@ function displayProducts() {
                     <img
                         src="${product.image}"
                         alt="${product.name}"
-                        loading="lazy"
-                        onerror="this.src='logo.png'"
                     >
 
                 </div>
@@ -193,7 +234,7 @@ function displayProducts() {
 
 
                     <a
-                        href="${whatsappLink}"
+                        href="${whatsapp}"
                         target="_blank"
                         class="whatsapp-btn"
                     >
@@ -261,14 +302,16 @@ function displayProducts() {
 
 
 /* =========================================
-   PENCARIAN
+   SEARCH
 ========================================= */
 
-const searchInput = document.getElementById("search");
+const search =
+    document.getElementById("search");
 
-if (searchInput) {
 
-    searchInput.addEventListener(
+if (search) {
+
+    search.addEventListener(
         "input",
         displayProducts
     );
@@ -303,96 +346,7 @@ function filterBrand(brand, button) {
 
 
 /* =========================================
-   POSTER SLIDER
-========================================= */
-
-let currentPoster = 0;
-
-
-const posters =
-    document.querySelectorAll(".poster");
-
-
-const posterDots =
-    document.querySelectorAll(".poster-dot");
-
-
-function showPoster(index) {
-
-    if (posters.length === 0) {
-        return;
-    }
-
-
-    if (index >= posters.length) {
-
-        currentPoster = 0;
-
-    }
-
-    else if (index < 0) {
-
-        currentPoster = posters.length - 1;
-
-    }
-
-    else {
-
-        currentPoster = index;
-
-    }
-
-
-    posters.forEach(poster => {
-
-        poster.classList.remove("active");
-
-    });
-
-
-    posterDots.forEach(dot => {
-
-        dot.classList.remove("active");
-
-    });
-
-
-    posters[currentPoster]
-        .classList.add("active");
-
-
-    if (posterDots[currentPoster]) {
-
-        posterDots[currentPoster]
-            .classList.add("active");
-
-    }
-
-}
-
-
-function changePoster(direction) {
-
-    showPoster(
-        currentPoster + direction
-    );
-
-}
-
-
-/* =========================================
-   OTOMATIS GANTI POSTER SETIAP 4 DETIK
-========================================= */
-
-setInterval(() => {
-
-    changePoster(1);
-
-}, 4000);
-
-
-/* =========================================
-   JALANKAN KATALOG
+   JALANKAN WEBSITE
 ========================================= */
 
 displayProducts();
