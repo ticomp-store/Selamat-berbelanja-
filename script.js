@@ -36,7 +36,7 @@ const products = [
         spec: "Intel Core i5-8 • RAM 8GB • SSD 256GB",
         price: "Rp 4.450.000",
         stock: "Stok tersedia",
-        image: "yoga 11E"
+        image: "20261005_112026_lmc_8.4.jpg"
     },
 
     {
